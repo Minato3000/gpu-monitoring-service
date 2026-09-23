@@ -2,7 +2,7 @@
   "name": "gpu-monitoring-service",
   "displayName": "GPU Monitoring Service",
   "description": "Real-time NVIDIA GPU stats in a VS Code sidebar panel",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "publisher": "Minato3000",
   "license": "MIT",
   "repository": {

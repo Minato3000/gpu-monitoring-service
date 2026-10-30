@@ -1,0 +1,16 @@
+{
+  "core": {
+    "shape": "circle",
+    "size": 28,
+    "radius": 6,
+    "gap": 5
+  },
+  "levels": [
+    { "max": 0,   "color": "#6b6b6b", "text": "#dddddd", "opacity": 0.6 },
+    { "max": 24,  "color": "#3fd68f", "text": "#ffffff" },
+    { "max": 49,  "color": "#e8d44d", "text": "#000000" },
+    { "max": 74,  "color": "#d18616", "text": "#ffffff" },
+    { "max": 99,  "color": "#f2555a", "text": "#ffffff" },
+    { "max": 100, "color": "#8c2a2e", "text": "#ffffff" }
+  ]
+}

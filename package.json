@@ -1,15 +1,15 @@
 {
   "name": "gpu-monitoring-service",
-  "displayName": "GPU Monitoring Service",
-  "description": "Real-time NVIDIA GPU stats in a VS Code sidebar panel",
-  "version": "0.1.0",
+  "displayName": "GPU & CPU Monitor",
+  "description": "Live NVIDIA GPU and CPU monitoring in your VS Code sidebar: per-core load, temperatures, RAM/VRAM, and the processes (and LLM models) behind them.",
+  "version": "0.2.0",
   "publisher": "Minato3000",
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/Minato3000/gpu-monitoring-service"
   },
-  "keywords": ["nvidia", "gpu", "monitor", "sidebar"],
+  "keywords": ["nvidia", "gpu", "cpu", "monitor", "sidebar", "vram", "nvidia-smi", "vllm", "sglang", "llm", "system monitor"],
   "engines": {
     "vscode": "^1.80.0"
   },
@@ -22,7 +22,7 @@
       "activitybar": [
         {
           "id": "gpu-monitoring-service-container",
-          "title": "GPU Monitor",
+          "title": "GPU & CPU Monitor",
           "icon": "icons/gpu-monitor.svg"
         }
       ]
@@ -32,16 +32,16 @@
         {
           "type": "webview",
           "id": "nvidiagpumonitor.panel",
-          "name": "NVIDIA GPU Stats",
+          "name": "System Stats",
           "icon": "icons/gpu-monitor.svg",
-          "contextualTitle": "GPU Monitor"
+          "contextualTitle": "GPU & CPU Monitor"
         }
       ]
     },
     "commands": [
       {
         "command": "nvidiagpumonitor.refresh",
-        "title": "GPU Monitor: Force Refresh",
+        "title": "GPU & CPU Monitor: Refresh Now",
         "icon": "$(refresh)"
       }
     ],
@@ -55,7 +55,7 @@
       ]
     },
     "configuration": {
-      "title": "NVIDIA GPU Monitor",
+      "title": "GPU & CPU Monitor",
       "properties": {
         "nvidiagpumonitor.refreshInterval": {
           "type": "number",
@@ -63,6 +63,11 @@
           "minimum": 500,
           "maximum": 30000,
           "description": "Polling interval in milliseconds (default: 2000ms)"
+        },
+        "nvidiagpumonitor.appearanceFile": {
+          "type": "string",
+          "default": "",
+          "markdownDescription": "Path to a JSON file that customizes the CPU core boxes (shape, size, corner radius, gap, and the color for each load level). Supports `~/` and paths relative to the workspace. Changes apply live. See `appearance.example.json`."
         },
         "nvidiagpumonitor.nvidiaSmiPath": {
           "type": "string",
